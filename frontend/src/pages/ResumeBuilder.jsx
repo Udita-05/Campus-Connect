@@ -28,7 +28,7 @@ const ResumeBuilder = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5005/api/profile/student', {
+                const { data } = await axios.get('https://campus-connect-k0va.onrender.com/api/profile/student', {
                     headers: authHeader(),
                 });
                 setProfile(data);

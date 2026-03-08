@@ -46,7 +46,7 @@ const StudentProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5005/api/profile/student', {
+        const { data } = await axios.get('https://campus-connect-k0va.onrender.com/api/profile/student', {
           headers: authHeader(),
         });
         setProfile(data);
@@ -106,7 +106,7 @@ const StudentProfile = () => {
         achievements
       };
 
-      const { data } = await axios.put('http://localhost:5005/api/profile/student', payload, {
+      const { data } = await axios.put('https://campus-connect-k0va.onrender.com/api/profile/student', payload, {
         headers: authHeader(),
       });
       setProfile(data);

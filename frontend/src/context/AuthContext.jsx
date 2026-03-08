@@ -17,14 +17,14 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const { data } = await axios.post('http://localhost:5005/api/auth/login', { email, password });
+    const { data } = await axios.post('https://campus-connect-k0va.onrender.com/api/auth/login', { email, password });
     setUser(data);
     localStorage.setItem('userInfo', JSON.stringify(data));
     axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
   };
 
   const signup = async (name, email, password, role) => {
-    const { data } = await axios.post('http://localhost:5005/api/auth/signup', { name, email, password, role });
+    const { data } = await axios.post('https://campus-connect-k0va.onrender.com/api/auth/signup', { name, email, password, role });
     setUser(data);
     localStorage.setItem('userInfo', JSON.stringify(data));
     axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;

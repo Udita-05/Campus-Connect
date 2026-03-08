@@ -20,11 +20,11 @@ const JobListings = () => {
         const token = userInfo ? JSON.parse(userInfo).token : '';
         const config = { headers: { Authorization: `Bearer ${token}` } };
 
-        const jobsRes = await axios.get('http://localhost:5005/api/jobs', config);
+        const jobsRes = await axios.get('https://campus-connect-k0va.onrender.com/api/jobs', config);
         setJobs(jobsRes.data);
 
         if (user?.role === 'student' && token) {
-          const appsRes = await axios.get('http://localhost:5005/api/applications/my-applications', config);
+          const appsRes = await axios.get('https://campus-connect-k0va.onrender.com/api/applications/my-applications', config);
           setAppliedJobIds(appsRes.data.map(app => app.job?._id));
         }
       } catch (error) {
@@ -46,7 +46,7 @@ const JobListings = () => {
       const userInfo = localStorage.getItem('userInfo');
       const token = userInfo ? JSON.parse(userInfo).token : '';
 
-      await axios.post('http://localhost:5005/api/applications/apply', { jobId }, {
+      await axios.post('https://campus-connect-k0va.onrender.com/api/applications/apply', { jobId }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAppliedJobIds([...appliedJobIds, jobId]);

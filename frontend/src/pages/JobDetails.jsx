@@ -20,7 +20,7 @@ const JobDetails = () => {
                 const token = userInfo ? JSON.parse(userInfo).token : '';
                 const config = { headers: { Authorization: `Bearer ${token}` } };
 
-                const { data } = await axios.get(`http://localhost:5005/api/jobs/${id}`, config);
+                const { data } = await axios.get(`https://campus-connect-k0va.onrender.com/api/jobs/${id}`, config);
                 setJob(data);
             } catch (err) {
                 console.error('Error fetching job details', err);

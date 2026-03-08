@@ -279,8 +279,8 @@ const ViewApplicants = () => {
     const fetchApplications = async () => {
       try {
         const [appRes, jobRes] = await Promise.all([
-          axios.get(`http://localhost:5005/api/applications/job/${jobId}`),
-          axios.get(`http://localhost:5005/api/jobs/${jobId}`)
+          axios.get(`https://campus-connect-k0va.onrender.com/api/applications/job/${jobId}`),
+          axios.get(`https://campus-connect-k0va.onrender.com/api/jobs/${jobId}`)
         ]);
         setCandidates(appRes.data);
         setJob(jobRes.data);
@@ -296,7 +296,7 @@ const ViewApplicants = () => {
 
   const updateStatus = async (applicationId, newStatus) => {
     try {
-      await axios.put(`http://localhost:5005/api/applications/${applicationId}/status`, { status: newStatus });
+      await axios.put(`https://campus-connect-k0va.onrender.com/api/applications/${applicationId}/status`, { status: newStatus });
       setCandidates(prev => prev.map(c => c._id === applicationId ? { ...c, status: newStatus } : c));
     } catch (error) {
       console.error('Error updating status', error);
@@ -305,7 +305,7 @@ const ViewApplicants = () => {
 
   const togglePPO = async (applicationId, ppoState) => {
     try {
-      await axios.put(`http://localhost:5005/api/applications/${applicationId}/status`, { ppoOffered: ppoState });
+      await axios.put(`https://campus-connect-k0va.onrender.com/api/applications/${applicationId}/status`, { ppoOffered: ppoState });
       setCandidates(prev => prev.map(c => c._id === applicationId ? { ...c, ppoOffered: ppoState, status: ppoState ? 'Selected' : c.status } : c));
     } catch (error) {
       console.error('Error toggling PPO', error);

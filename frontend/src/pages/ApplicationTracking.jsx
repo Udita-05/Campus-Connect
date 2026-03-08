@@ -32,7 +32,7 @@ const ApplicationTracking = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5005/api/applications/my-applications');
+        const { data } = await axios.get('https://campus-connect-k0va.onrender.com/api/applications/my-applications');
         setApplications(data);
       } catch (error) {
         console.error('Error fetching applications', error);

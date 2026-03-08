@@ -41,10 +41,10 @@ const AdminDashboard = () => {
       setLoading(true);
       const auth = getAuthHeader();
       const [statsRes, jobsRes, usersRes, appsRes] = await Promise.all([
-        axios.get('http://localhost:5005/api/admin/stats', auth),
-        axios.get('http://localhost:5005/api/admin/jobs', auth),
-        axios.get('http://localhost:5005/api/admin/users', auth),
-        axios.get('http://localhost:5005/api/applications/admin/all', auth)
+        axios.get('https://campus-connect-k0va.onrender.com/api/admin/stats', auth),
+        axios.get('https://campus-connect-k0va.onrender.com/api/admin/jobs', auth),
+        axios.get('https://campus-connect-k0va.onrender.com/api/admin/users', auth),
+        axios.get('https://campus-connect-k0va.onrender.com/api/applications/admin/all', auth)
       ]);
 
       setStats(statsRes.data);
@@ -60,7 +60,7 @@ const AdminDashboard = () => {
 
   const handleJobAction = async (jobId, status) => {
     try {
-      await axios.put(`http://localhost:5005/api/admin/jobs/${jobId}/status`, { status }, getAuthHeader());
+      await axios.put(`https://campus-connect-k0va.onrender.com/api/admin/jobs/${jobId}/status`, { status }, getAuthHeader());
       setPendingJobs(prev => prev.filter(job => job._id !== jobId));
       fetchData();
     } catch (error) {
@@ -82,7 +82,7 @@ const AdminDashboard = () => {
   const handleUpdateSchedule = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5005/api/applications/admin/${selectedApp._id}/procedure`, scheduleData, getAuthHeader());
+      await axios.put(`https://campus-connect-k0va.onrender.com/api/applications/admin/${selectedApp._id}/procedure`, scheduleData, getAuthHeader());
       setSelectedApp(null);
       fetchData();
     } catch (error) {

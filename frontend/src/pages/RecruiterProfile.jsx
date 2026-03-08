@@ -18,7 +18,7 @@ const RecruiterProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5005/api/profile/recruiter');
+        const { data } = await axios.get('https://campus-connect-k0va.onrender.com/api/profile/recruiter');
         setProfile(data);
         setFormData({
           companyName: data.companyName || '',
@@ -36,7 +36,7 @@ const RecruiterProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put('http://localhost:5005/api/profile/recruiter', formData);
+      const { data } = await axios.put('https://campus-connect-k0va.onrender.com/api/profile/recruiter', formData);
       setProfile(data);
       setIsEditing(false);
     } catch (error) {

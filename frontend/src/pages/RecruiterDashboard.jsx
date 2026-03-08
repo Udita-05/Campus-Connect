@@ -13,7 +13,7 @@ const RecruiterDashboard = () => {
   useEffect(() => {
     const fetchMyJobs = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5005/api/jobs/recruiter');
+        const { data } = await axios.get('https://campus-connect-k0va.onrender.com/api/jobs/recruiter');
         setJobs(data);
       } catch (error) {
         console.error('Error fetching jobs', error);
@@ -28,7 +28,7 @@ const RecruiterDashboard = () => {
   const handleDelete = async (jobId) => {
     if (window.confirm('Are you sure you want to delete this job posting?')) {
       try {
-        await axios.delete(`http://localhost:5005/api/jobs/${jobId}`);
+        await axios.delete(`https://campus-connect-k0va.onrender.com/api/jobs/${jobId}`);
         setJobs(jobs.filter(job => job._id !== jobId));
         alert('Job deleted successfully');
       } catch (error) {

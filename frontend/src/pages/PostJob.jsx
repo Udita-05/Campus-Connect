@@ -32,7 +32,7 @@ const PostJob = () => {
     if (isEdit) {
       const fetchJob = async () => {
         try {
-          const { data } = await axios.get(`http://localhost:5005/api/jobs/${id}`);
+          const { data } = await axios.get(`https://campus-connect-k0va.onrender.com/api/jobs/${id}`);
           setFormData({
             title: data.title || '',
             description: data.description || '',
@@ -79,10 +79,10 @@ const PostJob = () => {
       };
 
       if (isEdit) {
-        await axios.put(`http://localhost:5005/api/jobs/${id}`, payload);
+        await axios.put(`https://campus-connect-k0va.onrender.com/api/jobs/${id}`, payload);
         setSuccess('Job updated successfully!');
       } else {
-        await axios.post('http://localhost:5005/api/jobs', payload);
+        await axios.post('https://campus-connect-k0va.onrender.com/api/jobs', payload);
         setSuccess('Job posted successfully!');
       }
 
